@@ -1,15 +1,18 @@
 import React from 'react';
+import './App.css';
+import ProjectTable from './Components/ProjectTable';
 
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+        <ProjectTable>
+        </ProjectTable>
 
-
-const App = props => {
-  
-  return (  
-      <div>
-        <h2>DegenPulse</h2>
-      </div>
+      </header>
+    </div>
   );
-  
-};
+}
 
 export default App;
