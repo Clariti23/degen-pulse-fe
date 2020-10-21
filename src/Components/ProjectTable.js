@@ -5,17 +5,17 @@ export default class ProjectTable extends Component {
   state = {
     rows: []
   }
+  
   API_URL = "http://localhost:3001/projects"; 
 
   async componentDidMount() {
-    console.log("ComponentDidMount")
+    
     fetch(this.API_URL)
       .then(r => r.json())
       .then(data => this.CleanData(data))
   }
 
   CleanData = data => {
-    
     this.setState(
       {
         rows: data
