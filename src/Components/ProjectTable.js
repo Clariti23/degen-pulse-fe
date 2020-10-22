@@ -19,17 +19,14 @@ export default class ProjectTable extends Component {
     this.setState(
       {
         rows: data
-      },
-      () => console.log(this.state.rows)
+      }
     )
   }
   
   render() {
     return (
       <div>
-        <EnhancedTable rows={this.state.rows}>
-          
-        </EnhancedTable>
+        <EnhancedTable rows={this.state.rows} />
       </div>
     )
   }
