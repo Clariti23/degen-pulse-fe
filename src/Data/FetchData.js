@@ -2,7 +2,7 @@ import React from 'react'
 
 const Web3 = require('web3')
 const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/243510668224496a8899942590e996e6'));
-const API = "http://localhost:3001/projects"; 
+const API = "http://localhost:3001/projects/13"; 
 
 //Make a call to Infura to get some information from the blockchain
 function componentDidMount() {
@@ -18,22 +18,21 @@ function componentDidMount() {
       name: "Synthetix",
       chain: "ETH",
       category: "Derivatives",
-      value: 150000.99
+      value: 15000000.99
   }
-  setInterval(fetch(API, {
-    method: "POST",
-    headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-    },
-    body: JSON.stringify(snapshot)
-})
-  .then(response => console.log("posting to db...", response)) , 1000 * 60)
-};
 
-// get the Total Value Locked in Synthetix Contract
-// Post the value to the Web Server once per hour
+  setInterval( function(){fetch(API, {
+        method: "PUT",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(snapshot)
+    })
+      .then(response => console.log("posting to db...", response))}, 1000 * 60 )
+}  
+
 
 
 
